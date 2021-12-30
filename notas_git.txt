@@ -1,0 +1,10 @@
+Para subir los archivos a github:
+1- Crear el repositorio en Github
+2- Si se suben con una URL (http://...) hay que crearse un: Personal access tokens
+2.1- https://github.com/settings/tokens
+3- Desde la carpeta del proyecto (no desde .git)
+3.1- Crear el repositorio local (git init, git add, git commit)
+3.1- git remote add origin <http...>
+3.2- git push origin master
+3.2.1- Poner el usuario de Github.
+3.2.2- Poner el Personal access tokens (no usar la contraseña de acceso a la página web de Github)
