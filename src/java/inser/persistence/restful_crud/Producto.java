@@ -27,16 +27,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "producto")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Producto.findAll", query = "SELECT p FROM Producto p"),
-    @NamedQuery(name = "Producto.findByCodigoProducto", query = "SELECT p FROM Producto p WHERE p.codigoProducto = :codigoProducto"),
-    @NamedQuery(name = "Producto.findByNombre", query = "SELECT p FROM Producto p WHERE p.nombre = :nombre"),
-    @NamedQuery(name = "Producto.findByDimensiones", query = "SELECT p FROM Producto p WHERE p.dimensiones = :dimensiones"),
-    @NamedQuery(name = "Producto.findByProveedor", query = "SELECT p FROM Producto p WHERE p.proveedor = :proveedor"),
-    @NamedQuery(name = "Producto.findByCantidadEnStock", query = "SELECT p FROM Producto p WHERE p.cantidadEnStock = :cantidadEnStock"),
-    @NamedQuery(name = "Producto.findByPrecioVenta", query = "SELECT p FROM Producto p WHERE p.precioVenta = :precioVenta"),
-    @NamedQuery(name = "Producto.findByPrecioProveedor", query = "SELECT p FROM Producto p WHERE p.precioProveedor = :precioProveedor")})
+    @NamedQuery(name = "Producto.findAll", query = Producto.SELECT_findAll),
+    @NamedQuery(name = "Producto.findByCodigoProducto", query = Producto.SELECT_findByCodigoProducto)
+})
 public class Producto implements Serializable {
-
+    public static final String SELECT_findAll = "SELECT p FROM Producto p";
+    public static final String SELECT_findAll_order = SELECT_findAll + " ORDER BY p.";
+    public static final String SELECT_findByCodigoProducto = "SELECT p FROM Producto p WHERE p.descripcion like :descripcion";
+    public static final String SELECT_findByCodigoProducto_order = SELECT_findByCodigoProducto + " ORDER BY p.";
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
