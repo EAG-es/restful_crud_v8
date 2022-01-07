@@ -33,12 +33,14 @@ public class ApplicationConfig extends Application {
             + contraseña;
         entityManager = entityManager_map.get(clave);
         if (entityManager == null) {
-            propiedades_map = new HashMap();
             propiedades_map.put(jdbc_usuario, usuario);
             propiedades_map.put(jdbc_contraseña, contraseña);
             entityManagerFactory = Persistence.createEntityManagerFactory(unitName, propiedades_map);
 //            entityManagerFactory = Persistence.createEntityManagerFactory(unitName);
             entityManager = entityManagerFactory.createEntityManager();
+            if (entityManager != null) {
+                entityManager_map.put(clave, entityManager);
+            }
         }
         return entityManager;
     }
