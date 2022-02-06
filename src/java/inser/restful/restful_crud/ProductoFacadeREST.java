@@ -93,6 +93,7 @@ public class ProductoFacadeREST extends AbstractFacade<Producto> {
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Producto find(@PathParam("id") String id) {
         String texto;     
+        // Otra opcion: @HeaderParam(jdbc_usuario) String usuario (como parámetro)
         texto = context.getHeader(jdbc_usuario);
         propiedades_mapa.put(jdbc_usuario, texto);
         texto = context.getHeader(jdbc_contraseña);        

@@ -23,6 +23,17 @@ import javax.ws.rs.core.Application;
 public class ApplicationConfig extends Application {
     public static Map<String, EntityManager> entityManager_map = new HashMap();
     
+    /**
+     * Obtiene un entityManager.
+     * - Error si la versión de Java no es compatible con las versiones de java de las librerías JPA
+     * -- En Feb.2022 Java JDK 11 funciona y Java JDK 16 No funciona con EclipseLink 2.7.7
+     * @param unitName
+     * @param usuario
+     * @param contraseña
+     * @param propiedades_map
+     * @param error
+     * @return 
+     */
     public static EntityManager getEntityManager(String unitName, String usuario, String contraseña, Map<String, String> propiedades_map, String [] error) {
         EntityManagerFactory entityManagerFactory;
         EntityManager entityManager;
