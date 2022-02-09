@@ -29,7 +29,7 @@ public abstract class AbstractFacade<T> {
         entityManager.getTransaction().begin();
         entityManager.persist(entity);
         entityManager.getTransaction().commit();
-        entityManager.close();
+//        entityManager.close();
     }
 
     public void edit(T entity) {
@@ -39,7 +39,7 @@ public abstract class AbstractFacade<T> {
         entityManager.getTransaction().begin();
         entityManager.merge(entity);
         entityManager.getTransaction().commit();
-        entityManager.close();
+//        entityManager.close();
     }
 
     public void remove(T entity) {
@@ -52,7 +52,7 @@ public abstract class AbstractFacade<T> {
         entityManager.getTransaction().begin();
         entityManager.remove(entity);
         entityManager.getTransaction().commit();
-        entityManager.close();
+//        entityManager.close();
     }
 
     public T find(Object id) {

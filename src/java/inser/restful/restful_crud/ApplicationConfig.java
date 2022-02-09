@@ -43,7 +43,7 @@ public class ApplicationConfig extends Application {
             + "-" 
             + contraseña;
         entityManager = entityManager_map.get(clave);
-        if (entityManager == null) {
+        if (entityManager == null || entityManager.isOpen() == false) {
             propiedades_map.put(jdbc_usuario, usuario);
             propiedades_map.put(jdbc_contraseña, contraseña);
             entityManagerFactory = Persistence.createEntityManagerFactory(unitName, propiedades_map);
